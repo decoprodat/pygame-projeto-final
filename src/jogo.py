@@ -25,7 +25,7 @@ from src.dados import (
 
 
 def executar_jogo():
-    """Executa o loop principal do jogo e controla estado, colisões e pontuação."""
+    """Executa o loop principal do jogo e controla estado, pontuações, erros e acertos."""
     pygame.init()
     
 

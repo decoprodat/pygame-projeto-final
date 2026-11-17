@@ -3,7 +3,7 @@ def salvar_recorde(caminho_arquivo, pontuacao):
     with open(caminho_arquivo, "w", encoding="utf-8") as arquivo:
         arquivo.write(str(pontuacao))
 
-
+# O recorde é salvo diacordo com o acerto consecutivo 
 def carregar_recorde(caminho_arquivo):
     """Carrega o recorde salvo; retorna 0 se não existir valor válido."""
     try:

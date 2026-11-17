@@ -3,14 +3,14 @@ def calcular_pontos(pontos_atual, pontos_ganhos):
     return pontos_atual + pontos_ganhos
 
 
-def tomar_dano(vida_atual, dano):
-    """Reduz a vida atual com base no dano recebido."""
-    return vida_atual - dano
+def errar(vida_atual, erro):
+    """Reduz a quantidade de chances atual com base no erro recebido que é automaticamente 1, de 1 em 1."""
+    return vida_atual - erro
 
 
-def jogador_perdeu(vidas):
-    """Indica se o jogador ficou sem vidas."""
-    return vidas <= 0
+def jogador_chance(chance):
+    """Indica se o jogador ficou sem chances."""
+    return chance <= 0
 
 
 def limitar_valor(valor, minimo, maximo):
@@ -22,6 +22,3 @@ def limitar_valor(valor, minimo, maximo):
     return valor
 
 
-def verificar_colisao(retangulo_1, retangulo_2):
-    """Verifica sobreposição entre dois retângulos do Pygame."""
-    return retangulo_1.colliderect(retangulo_2)

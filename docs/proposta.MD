@@ -29,7 +29,7 @@ Indique qual tema específico o grupo escolheu **dentro do eixo temático defini
 
 **Como esse tema se relaciona com o jogo?** Explique brevemente (2 a 4 linhas) como ele aparecerá nos objetivos, nas regras ou nos desafios, e não apenas nas imagens ou no cenário.
 
-> O tema é a própria mecânica do jogo: a cada rodada, o jogador precisa descobrir, entre duas ou mais imagens, qual foi gerada por IA. Acertar soma pontos e errar tira vidas. Depois de cada resposta, o jogo mostra a pista que denunciava a imagem artificial, e a dificuldade aumenta com mais imagens por rodada e menos tempo para responder.
+> O tema é a própria mecânica do jogo: a cada rodada, o jogador precisa descobrir, entre duas ou mais imagens, qual foi gerada por IA. Acertar vai passando de etapa e errar vai diminuindo as chances. Depois de cada resposta, o jogo mostra a pista e a dificuldade aumenta com mais imagens por rodada e menos tempo para responder.
 
 **Aspecto de uso responsável abordado:**
 
@@ -57,7 +57,7 @@ Explique, em poucas linhas, como o jogo funcionará. O que aparece na tela? O qu
 
 **Descrição:**
 
-> Na tela aparecem duas ou mais imagens lado a lado, além da pontuação, das vidas, do nível e de uma barra de tempo. Apenas uma das imagens foi gerada por IA, e as outras são fotos reais. O jogador controla uma moldura de seleção, movendo-a entre as imagens com as setas ou clicando com o mouse, e confirma a imagem que acredita ser artificial. Depois da resposta, o jogo revela a imagem correta e mostra a pista que a denunciava. O desafio aumenta a cada nível: aparecem mais imagens por rodada, o tempo para responder diminui e as imagens ficam mais parecidas.
+> Na tela aparecem duas ou mais imagens lado a lado, além da pontuação, das chances,da fase, teremos também o recorde de maior sequenciência acertada e por fim um tempo para o jogador responder. Apenas uma das imagens foi gerada por IA, e as outras são fotos reais. O jogador controla uma moldura de seleção, movendo-a entre as imagens com as setas ou clicando com o mouse, e confirma a imagem que acredita ser artificial. Depois da resposta, o jogo revela a imagem correta e mostra a pista que a denunciava. O desafio aumenta a cada fase: aparecem mais imagens por rodada, o tempo para responder diminui e as imagens ficam mais parecidas, dependendo da fase mudando apenas detalhes.
 
 ## 6. Objetivo do jogador
 
@@ -65,7 +65,7 @@ Descreva o objetivo principal. Por exemplo: coletar itens, sobreviver por determ
 
 **Objetivo:**
 
-> Identificar corretamente a imagem gerada por IA no maior número possível de rodadas, sem perder todas as vidas. O jogador vence ao completar todas as rodadas e tenta fazer a maior pontuação possível para bater o recorde.
+> Identificar corretamente a imagem gerada por IA no maior número possível de rodadas, sem perder todas as chances. O jogador vence ao completar todas as rodadas e tenta fazer a maior pontuação possível para bater o recorde.
 
 ## 7. Regras principais
 
@@ -73,9 +73,9 @@ Liste até cinco regras que expliquem o funcionamento do jogo. Exemplos: o jogad
 
 - Regra 1: A cada rodada aparecem várias imagens, e apenas uma foi gerada por IA; o jogador deve escolher qual é ela antes que o tempo acabe.
 - Regra 2: Cada acerto vale 10 pontos mais um bônus pelo tempo que sobrou, e acertos seguidos aumentam um multiplicador de pontos.
-- Regra 3: O jogador começa com 3 vidas e perde uma a cada erro ou quando o tempo acaba sem resposta.
-- Regra 4: Após cada resposta, o jogo mostra qual era a imagem de IA e a pista que a denunciava.
-- Regra 5: O jogo tem 3 níveis, com 2, 3 e 4 imagens por rodada e menos tempo a cada nível.
+- Regra 3: O jogador começa com 2 chances por fase e perde uma a cada erro ou quando o tempo acaba sem resposta.
+- Regra 4: Após cada resposta, o jogo mostra qual era a imagem de IA.
+- Regra 5: O jogo tem 3 níveis, com 10, 10 e 20 imagens por rodada e menos tempo a cada nível.
 
 ## 8. Condição de vitória
 
@@ -83,7 +83,7 @@ Explique como o jogador vence ou conclui a partida. Exemplos: alcançar uma pont
 
 **Condição de vitória:**
 
-> O jogador vence ao completar todas as rodadas dos 3 níveis sem perder todas as vidas. Ao final, é exibido um relatório com a pontuação, a quantidade de acertos e erros e a maior sequência de acertos, e se a pontuação superar o recorde salvo em arquivo, o recorde é atualizado.
+> O jogador vence ao completar todas as rodadas dos 3 níveis sem perder todas as chances. Ao final, é exibido um relatório com a pontuação, a quantidade de acertos e erros e a maior sequência de acertos, e se a pontuação superar o recorde salvo em arquivo, o recorde é atualizado.
 
 ## 9. Condição de derrota ou encerramento
 
@@ -91,7 +91,7 @@ Explique quando a partida termina ou como o jogador perde. Exemplos: esgotar as 
 
 **Condição de derrota ou encerramento:**
 
-> O jogador perde quando fica sem vidas, ou seja, ao errar três vezes (incluindo rodadas em que o tempo acabou sem resposta). O jogador também pode encerrar o jogo a qualquer momento pressionando ESC. Ao final, a pontuação é comparada com o recorde salvo.
+> O jogador perde quando fica sem chances, ou seja, ao errar duas vezes (incluindo rodadas em que o tempo acabou sem resposta). O jogador também pode encerrar o jogo a qualquer momento pressionando ESC. Ao final, a pontuação é comparada com o recorde salvo.
 
 ## 10. Elementos previstos no jogo
 
@@ -100,7 +100,7 @@ Descreva brevemente os elementos mais importantes, sem precisar detalhar a imple
 - **Personagem ou elemento principal:** uma moldura de seleção que o jogador move entre as imagens para escolher a que acredita ser gerada por IA.
 - **Obstáculos ou desafios:** o tempo limite de cada rodada e imagens cada vez mais realistas e numerosas a cada nível.
 - **Itens ou objetos de interação:** as imagens de cada rodada (fotos reais e uma imagem gerada por IA) e a tela de pista exibida após cada resposta.
-- **Pontuação, vidas, tempo ou progresso:** pontuação, multiplicador por acertos seguidos, 3 vidas, barra de tempo, nível atual, número da rodada e recorde salvo em arquivo.
+- **Pontuação, vidas, tempo ou progresso:** pontuação, multiplicador por acertos seguidos, 3 chances, barra de tempo, nível atual, número da rodada e recorde salvo em arquivo.
 
 ## 11. Controles previstos
 
@@ -117,14 +117,14 @@ Cite até três dificuldades que o grupo espera enfrentar. Exemplos: movimentaç
 - Dificuldade 1: Reunir imagens reais com licença livre e gerar imagens de IA parecidas com elas, registrando corretamente a origem de cada uma.
 - Dificuldade 2: Carregar, redimensionar e posicionar as imagens na tela de acordo com a quantidade de cada nível, além de controlar o tempo de cada rodada.
 - Dificuldade 3: Organizar o trabalho em grupo no GitHub e escrever testes para as funções de lógica do jogo.
-
+- Dificuldade 4: Encontrar um jogo intuitivo, interessante que coubesse na proposta e também que todos estivessem de acordo com a ideia.  
 ## 13. Escopo mínimo para a entrega final
 
 Descreva a **versão mais simples que já seria jogável**, com as interações e regras essenciais. Evite planejar funcionalidades demais.
 
 **Escopo mínimo:**
 
-> Pelo menos 15 rodadas carregadas de um arquivo em `data/`, divididas em 3 níveis (2, 3 e 4 imagens). O jogador escolhe a imagem de IA com as setas e o Enter, com tempo limite por rodada. Acertos somam pontos, erros tiram vidas, e após cada resposta aparece a pista. A partida termina ao completar todas as rodadas ou perder as 3 vidas, e o recorde é salvo em arquivo.
+> Pelo menos 30 rodadas carregadas de um arquivo em `data/`, divididas em 3 níveis (10, 20 e 30 imagens). O jogador escolhe a imagem de IA com as setas e o Enter, com tempo limite por rodada. Acertos somam pontos, erros tiram vidas, e após cada resposta aparece a pista. A partida termina ao completar todas as rodadas ou perder as 3 vidas, e o recorde é salvo em arquivo.
 
 ## 14. Possíveis melhorias, caso haja tempo
 
@@ -148,7 +148,7 @@ O grupo vai manter a estrutura de arquivos do template, adaptando cada módulo:
 
 ## 16. Recursos previstos
 
-> Fotos reais de sites com licença livre (como Unsplash, Pexels e Wikimedia Commons), sem pessoas identificáveis, e imagens geradas por uma ferramenta de IA de geração de imagens. Todas as imagens terão sua origem, autor, licença ou ferramenta utilizada registrados na seção "Recursos externos utilizados" do README.md.
+> Fotos reais de sites com licença livre (propria biblioteca dos desenvolvedores do jogo, ou Unsplash, Pexels e Wikimedia Commons), sem pessoas identificáveis, e imagens geradas por uma ferramenta de IA de geração de imagens. Todas as imagens terão sua origem, autor, licença ou ferramenta utilizada registrados na seção "Recursos externos utilizados" do README.md.
 
 ## 17. Declaração de originalidade
 

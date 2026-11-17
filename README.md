@@ -20,15 +20,15 @@ Projeto final da disciplina de Introdução a Algoritmos/Programação (PUC Mina
 
 ## Descrição do jogo
 
-IA GAME é um jogo de observação em que o jogador precisa descobrir qual imagem foi gerada por Inteligência Artificial. A cada rodada, aparecem na tela duas ou mais imagens parecidas: apenas uma delas foi criada por IA, e as outras são fotos reais. O jogador escolhe a imagem que acredita ser artificial antes que o tempo acabe. Acertos somam pontos e erros tiram vidas. Depois de cada resposta, o jogo revela a imagem correta e mostra uma pista que denunciava a IA, como dedos deformados, textos sem sentido, sombras incoerentes ou fundos distorcidos. Conforme o jogador avança de nível, aumenta o número de imagens por rodada e diminui o tempo para responder.
+IA GAME é um jogo de observação em que o jogador precisa descobrir qual imagem foi gerada por Inteligência Artificial. A cada rodada, aparecem na tela duas ou mais imagens parecidas: apenas uma delas foi criada por IA, e as outras são fotos reais. O jogador escolhe a imagem que acredita ser artificial antes que o tempo acabe. Acertos somam pontos e fazem o jogador avançar; erros tiram chances. Na tela aparecem a pontuação, as chances, a fase, o recorde de maior sequência de acertos e o tempo para responder. Depois de cada resposta, o jogo revela a imagem correta e mostra uma pista que denunciava a IA, como dedos deformados, textos sem sentido, sombras incoerentes ou fundos distorcidos. Conforme o jogador avança de fase, aumenta o número de imagens por rodada, diminui o tempo para responder e as imagens ficam mais parecidas, até mudarem apenas em detalhes.
 
 ## Tema: IA no cotidiano e uso responsável
 
-O jogo aborda o tema **conteúdos reais e artificiais**. Imagens geradas por IA estão cada vez mais realistas e circulam todos os dias em redes sociais, notícias e anúncios, podendo ser usadas para enganar ou desinformar. O jogo treina o jogador a observar os detalhes com atenção e a analisar criticamente o que vê antes de acreditar ou compartilhar (análise crítica). Após cada resposta, ele mostra a pista que denunciava a imagem artificial (transparência), e nos níveis mais altos as imagens ficam mais difíceis de distinguir, mostrando que nem tudo o que parece verdadeiro é real (confiabilidade da informação).
+O jogo aborda o tema **conteúdos reais e artificiais**. Imagens geradas por IA estão cada vez mais realistas e circulam todos os dias em redes sociais, notícias e anúncios, podendo ser usadas para enganar ou desinformar. O jogo treina o jogador a observar os detalhes com atenção e a analisar criticamente o que vê antes de acreditar ou compartilhar (análise crítica). Após cada resposta, ele mostra a pista que denunciava a imagem artificial (transparência), e nas fases mais altas as imagens ficam mais difíceis de distinguir, mostrando que nem tudo o que parece verdadeiro é real (confiabilidade da informação).
 
 ## Objetivo do jogador
 
-Identificar corretamente a imagem gerada por IA no maior número possível de rodadas, sem perder todas as vidas. O jogador vence ao completar todas as rodadas e tenta fazer a maior pontuação possível para bater o recorde.
+Identificar corretamente a imagem gerada por IA no maior número possível de rodadas, sem perder todas as chances. O jogador vence ao completar todas as rodadas e tenta fazer a maior pontuação possível para bater o recorde.
 
 ## Regras do jogo
 
@@ -37,11 +37,11 @@ Identificar corretamente a imagem gerada por IA no maior número possível de ro
 - Cada rodada tem um tempo limite; se o tempo acabar sem resposta, conta como erro.
 - Cada acerto vale 10 pontos, mais um bônus pelo tempo que sobrou.
 - Acertos seguidos aumentam um multiplicador de pontos; um erro zera a sequência.
-- O jogador começa com 3 vidas e perde uma a cada erro.
+- O jogador tem 2 chances por fase e perde uma a cada erro ou quando o tempo acaba sem resposta.
 - Após cada resposta, o jogo mostra qual era a imagem de IA e a pista que a denunciava.
-- O jogo tem 3 níveis: no nível 1 aparecem 2 imagens, no nível 2 aparecem 3 e no nível 3 aparecem 4, com menos tempo por rodada.
-- O jogador vence ao completar todas as rodadas e perde ao ficar sem vidas.
-- Ao final, a pontuação é comparada com o recorde salvo em arquivo.
+- O jogo tem 3 fases, com 10, 10 e 20 rodadas. A cada fase aparecem mais imagens por rodada e há menos tempo para responder.
+- O jogador vence ao completar todas as rodadas das 3 fases e perde ao ficar sem chances (2 erros).
+- Ao final, é exibido um relatório com a pontuação, os acertos e erros e a maior sequência de acertos; se a pontuação superar o recorde salvo em arquivo, o recorde é atualizado.
 
 ## Controles
 
@@ -87,8 +87,8 @@ Nenhum até o momento.
 ## Decisões técnicas
 
 - O projeto mantém a estrutura do template da disciplina (`config.py`, `jogo.py`, `funcoes.py`, `dados.py` e `sprites.py`), organizada em funções e dicionários.
-- As rodadas ficam no arquivo `data/rodadas.json`. Cada rodada é um dicionário com o caminho das imagens, qual delas é a de IA, o nível e a pista explicativa. Assim, novas rodadas podem ser adicionadas sem alterar o código.
+- As rodadas ficam no arquivo `data/rodadas.json`. Cada rodada é um dicionário com o caminho das imagens, qual delas é a de IA, a fase e a pista explicativa. Assim, novas rodadas podem ser adicionadas sem alterar o código.
 - As imagens de cada rodada são embaralhadas com `random.shuffle`, para que a imagem de IA não apareça sempre na mesma posição.
 - O recorde é salvo em `data/recorde.txt`, usando as funções `salvar_recorde` e `carregar_recorde` do template.
-- As fotos reais foram escolhidas sem pessoas identificáveis (paisagens, animais, comidas e objetos), para evitar problemas de direitos de imagem.
-- A lógica do jogo (verificar resposta, calcular pontos, controlar vidas e níveis) fica separada do desenho na tela, para facilitar os testes com `pytest`.
+- As fotos reais vêm da biblioteca própria do grupo ou de sites com licença livre (Unsplash, Pexels, Wikimedia Commons) e foram escolhidas sem pessoas identificáveis (paisagens, animais, comidas e objetos), para evitar problemas de direitos de imagem.
+- A lógica do jogo (verificar resposta, calcular pontos, controlar chances e fases) fica separada do desenho na tela, para facilitar os testes com `pytest`.

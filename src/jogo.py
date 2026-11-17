@@ -12,10 +12,9 @@ from src.config import (
 
 from src.funcoes import (
     calcular_pontos,
-    jogador_perdeu,
+    jogador_chance,
     limitar_valor,
-    verificar_colisao,
-    tomar_dano,
+    errar
 )
 from src.sprites import pegar_sprite
 from src.dados import (
@@ -65,7 +64,7 @@ def executar_jogo():
 
     velocidade = 5
     pontos = 0
-    vidas = 3
+    chance = 3
     recorde = carregar_recorde(CAMINHO_RECORDE)
 
     # Loop principal: processa entrada, atualiza estado e renderiza a cena.
@@ -108,7 +107,7 @@ def executar_jogo():
 
         # Verificação de colisão com o Inimigo
         if verificar_colisao(jogador["rect"], inimigo["rect"]):
-            vidas = tomar_dano(vidas, 1)
+            chance = tomar_dano(chance, 1)
 
             # Afasta o inimigo ao colidir
             inimigo["rect"].x += 80
@@ -120,7 +119,7 @@ def executar_jogo():
                 inimigo["rect"].y = 50
 
         # Regras de fim de jogo e recorde
-        if jogador_perdeu(vidas):
+        if jogador_perdeu(chance):
             rodando = False
 
         if pontos > recorde:
@@ -128,7 +127,7 @@ def executar_jogo():
             salvar_recorde(CAMINHO_RECORDE, recorde)
 
         pygame.display.set_caption(
-            f"{TITULO_JOGO} | Pontos: {pontos} | Recorde: {recorde} | Vidas: {vidas}"
+            f"{TITULO_JOGO} | Pontos: {pontos} | Recorde: {recorde} | chance: {chance}"
         )
 
         tela.fill(CINZA)

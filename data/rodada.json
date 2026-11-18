@@ -1,0 +1,32 @@
+[
+   {
+    "fase": 1,
+    "imagens": ["assets/imagens/fase1/r1.IA.png", "assets/imagens/fase1/r1.REl.jpg"],
+    "ia": "assets/imagens/fase1/r1.IA.png",
+    "pista": "Pista da rodada 1"
+  },
+  {
+    "fase": 1,
+    "imagens": ["assets/imagens/fase1/r2.IA.png", "assets/imagens/fase1/r2.Real.jpg"],
+    "ia": "assets/imagens/fase1/r2.IA.png",
+    "pista": "Pista da rodada 2"
+  },
+  {
+    "fase": 1,
+    "imagens": ["assets/imagens/fase1/r3.IA.webp", "assets/imagens/fase1/r3.REAL.jpg"],
+    "ia": "assets/imagens/fase1/r3.IA.webp",
+    "pista": "Pista da rodada 3"
+  },
+  {
+    "fase": 1,
+    "imagens": ["assets/imagens/fase1/r4.IA.png", "assets/imagens/fase1/r4.REAL.jpg"],
+    "ia": "assets/imagens/fase1/r4.IA.png",
+    "pista": "Pista da rodada 4"
+  },
+  {
+    "fase": 1,
+    "imagens": ["assets/imagens/fase1/r5.IA.png", "assets/imagens/fase1/r5.REAL.jpg"],
+    "ia": "assets/imagens/fase1/r5.IA.png",
+    "pista": "Pista da rodada 5"
+  }
+]

@@ -17,3 +17,44 @@ def carregar_recorde(caminho_arquivo):
 
     except FileNotFoundError:
         return 0
+
+
+import json
+
+def carregar_rodada(caminho_arquivo):
+ """Carrega a rodada ; retorna VAZIO se não existir RODADA."""
+    
+ try:
+        
+        with open (caminho_arquivo,"r", encoding="utf-8") as arquivo:
+
+            conteudo = arquivo.read().strip()
+
+            if conteudo == "":
+
+                return []
+
+            return json.loads(conteudo)
+
+
+ except FileNotFoundError:
+
+        return []
+
+ except json.JSONDecodeError:
+
+        print("Erro no Rodada.json")
+     
+        return []
+
+ 
+ 
+ 
+ 
+def salvar(caminho_arquivo,rodada):
+
+    with open(caminho_arquivo,"w", encoding="utf-8") as arquivo:
+
+       json.dump(rodada,arquivo,ensure_ascii=False, indent=4)
+
+    

@@ -10,6 +10,5 @@ PRETO = (0, 0, 0)
 CINZA = (212,212,212)
 
 CAMINHO_RECORDE = "data/recorde.txt"
-CAMINHO_SPRITES = "assets/imagens/fase1"
-CAMINHO_RODADAS = "assets/data/json"
-CAMINHO_SPRITES = "assets/imagens/fase3"
+CAMINHO_RODADAS = "assets/data/rodada.json"
+

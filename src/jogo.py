@@ -48,7 +48,7 @@ def executar_jogo():
                 rodando = False
 
         # Regras de fim de jogo e recorde
-        if errar(chance):
+        if jogador_chance(chance):
             rodando = False
 
         if pontos > recorde:
@@ -60,6 +60,8 @@ def executar_jogo():
         )
 
         tela.fill(CINZA)
+
+        pygame.display.flip()
 
 
     pygame.quit()

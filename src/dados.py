@@ -51,7 +51,7 @@ def carregar_rodada(caminho_arquivo):
  
  
  
-def salvar(caminho_arquivo,rodada):
+def salvar_rodada(caminho_arquivo,rodada):
 
     with open(caminho_arquivo,"w", encoding="utf-8") as arquivo:
 

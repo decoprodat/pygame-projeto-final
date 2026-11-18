@@ -20,7 +20,7 @@ from src.dados import (
     salvar_recorde,
     carregar_recorde,
     carregar_rodada,
-    salvar
+    salvar_rodada
 )
 
 
@@ -36,7 +36,7 @@ def executar_jogo():
     rodando = True
     
     pontos = 0
-    chance = 3
+    chance = 2
     recorde = carregar_recorde(CAMINHO_RECORDE)
 
     # Loop principal: processa entrada, atualiza estado e renderiza a cena.

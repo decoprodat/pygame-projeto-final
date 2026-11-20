@@ -48,3 +48,16 @@ def proxima_rodada(indice_rodada):
 def rodadas_acabaram(indice_rodada, total_rodadas):
     """Indica se o índice já passou da última rodada."""
     return indice_rodada >= total_rodadas
+
+def tempo_fase (fase):
+
+    if fase == 1:
+
+        return 20
+
+    elif fase == 2:
+        
+        return 15
+
+    else:
+        return 10

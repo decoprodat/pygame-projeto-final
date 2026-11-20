@@ -46,10 +46,6 @@ def carregar_rodada(caminho_arquivo):
         print("Erro no Rodada.json")
      
         return []
-
- 
- 
- 
  
 def salvar_rodada(caminho_arquivo,rodada):
 

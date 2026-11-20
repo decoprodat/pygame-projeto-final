@@ -88,6 +88,7 @@ def executar_jogo():
 
     indice_rodada = 0                 # qual a rodada que está sendo jogada
     rodada = rodadas[indice_rodada]   # a rodada atual
+    imagens = carregar_imagens(rodada) 
     selecionada = 0                   # qual imagem está marcada
 
     inicio_rodada = pygame.time.get_ticks()   # vai pegar o instante (EM MS, NÃO EM SEGS) em que a rodada começou
@@ -148,6 +149,7 @@ def executar_jogo():
                 rodando = False
             else:
                 rodada = rodadas[indice_rodada]                 # carrega a nova rodada
+                imagens = carregar_imagens(rodada)
                 selecionada = 0                                 # volta a seleção para a primeira imagem
                 inicio_rodada = pygame.time.get_ticks()         # reinicia o cronômetro
                 restante = TEMPO_RODADA
@@ -164,7 +166,8 @@ def executar_jogo():
         )
 
         tela.fill(CINZA)
-
+        desenhar_imagens(tela,imagens)
+        desenhar_moldura(tela,selecionada,len(imagens)) 
         pygame.display.flip()
 
 

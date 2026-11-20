@@ -8,7 +8,7 @@ TITULO_JOGO = "Projeto Final - Pygame"
 BRANCO = (255, 255, 255)
 PRETO = (0, 0, 0)
 CINZA = (212,212,212)
-
+TEMPO_RODADA = 10
 CAMINHO_RECORDE = "data/recorde.txt"
 CAMINHO_RODADAS = "data/rodada.json"
 

@@ -1,4 +1,4 @@
-from src.funcoes import calcular_pontos, jogador_chance, limitar_valor, verificar_resposta, mover_selecao
+from src.funcoes import calcular_pontos, jogador_chance, limitar_valor, verificar_resposta, mover_selecao, tempo_restante, tempo_acabou, proxima_rodada, rodadas_acabaram
 
 def test_calcular_pontos():
     """Deve somar corretamente os pontos atuais com os pontos ganhos."""
@@ -45,3 +45,29 @@ def test_mover_selecao_nao_passa_do_limite():
     assert mover_selecao(0, -1, 2) == 0
     assert mover_selecao(1, 1, 2) == 1
     assert mover_selecao(0, 1, 2) == 1
+
+def test_tempo_restante_no_meio():
+    """Deve devolver os segundos que sobram depois de 5 s decorridos (limite 15)."""
+    assert tempo_restante(1000, 6000, 15) == 10
+
+
+def test_tempo_restante_nunca_negativo():
+    """Não deve passar de 0 mesmo se o tempo decorrido for maior que o limite."""
+    assert tempo_restante(0, 30000, 15) == 0
+
+
+def test_tempo_acabou():
+    """Deve indicar fim de tempo só quando o restante chega a 0."""
+    assert tempo_acabou(0) is True
+    assert tempo_acabou(3.5) is False
+
+
+def test_proxima_rodada():
+    """Deve devolver o índice seguinte."""
+    assert proxima_rodada(0) == 1
+
+
+def test_rodadas_acabaram():
+    """Deve indicar quando o índice passa da última rodada."""
+    assert rodadas_acabaram(5, 5) is True
+    assert rodadas_acabaram(4, 5) is False

@@ -28,5 +28,23 @@ def verificar_resposta(rodada, indice_escolhido):
 
 
 def mover_selecao(selecionada, direcao, total_imagens):
-    """Move a seleção (-1 = esquerda, +1 = direita) sem sair dos limites."""
+    """Move a seleção (-1 = esquerda, +1 = direita) sem sair dos limites"""
     return limitar_valor(selecionada + direcao, 0, total_imagens - 1)
+
+def tempo_restante(inicio_ms, agora_ms, limite_segundos):
+    """Calcula quantos segundos ainda restam na rodada"""
+    decorrido = (agora_ms - inicio_ms) / 1000   # milissegundos para segundos
+    return limitar_valor(limite_segundos - decorrido, 0, limite_segundos)
+
+def tempo_acabou(restante):
+    """Indica se o tempo da rodada chegou a zero."""
+    return restante <= 0
+
+
+def proxima_rodada(indice_rodada):
+    """Devolve o número da próxima rodada."""
+    return indice_rodada + 1
+
+def rodadas_acabaram(indice_rodada, total_rodadas):
+    """Indica se o índice já passou da última rodada."""
+    return indice_rodada >= total_rodadas

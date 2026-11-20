@@ -22,3 +22,11 @@ def limitar_valor(valor, minimo, maximo):
     return valor
 
 
+def verificar_resposta(rodada, indice_escolhido):
+    """esse retorna True se a imagem escolhida é a gerada por IA."""
+    return rodada["imagens"][indice_escolhido] == rodada["ia"]
+
+
+def mover_selecao(selecionada, direcao, total_imagens):
+    """Move a seleção (-1 = esquerda, +1 = direita) sem sair dos limites."""
+    return limitar_valor(selecionada + direcao, 0, total_imagens - 1)

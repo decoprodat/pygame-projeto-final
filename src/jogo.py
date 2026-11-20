@@ -8,6 +8,16 @@ from src.config import (
     CINZA,
     CAMINHO_RECORDE,
     CAMINHO_RODADAS,
+    TEMPO_RODADA,
+)
+
+from src.funcoes import (
+    calcular_pontos,
+    jogador_chance,
+    limitar_valor,
+    errar,
+    verificar_resposta,
+    mover_selecao,
     tempo_restante,
     tempo_acabou,
     proxima_rodada,

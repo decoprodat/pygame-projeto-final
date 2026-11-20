@@ -1,3 +1,5 @@
+import json
+
 def salvar_recorde(caminho_arquivo, pontuacao):
     """Salva a pontuação recorde em arquivo texto."""
     with open(caminho_arquivo, "w", encoding="utf-8") as arquivo:
@@ -19,12 +21,10 @@ def carregar_recorde(caminho_arquivo):
         return 0
 
 
-import json
-
 def carregar_rodada(caminho_arquivo):
- """Carrega a rodada ; retorna VAZIO se não existir RODADA."""
+    """Carrega a rodada ; retorna VAZIO se não existir RODADA."""
     
- try:
+    try:
         
         with open (caminho_arquivo,"r", encoding="utf-8") as arquivo:
 
@@ -37,11 +37,11 @@ def carregar_rodada(caminho_arquivo):
             return json.loads(conteudo)
 
 
- except FileNotFoundError:
+    except FileNotFoundError:
 
         return []
 
- except json.JSONDecodeError:
+    except json.JSONDecodeError:
 
         print("Erro no Rodada.json")
      

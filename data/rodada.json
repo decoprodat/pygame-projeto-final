@@ -1,7 +1,7 @@
 [
    {
     "fase": 1,
-    "imagens": ["assets/imagens/fase1/r1.real.png", "assets/imagens/fase1/r1.real.jpg"],
+    "imagens": ["assets/imagens/fase1/r1.ia.png", "assets/imagens/fase1/r1.real.jpg"],
     "ia": "assets/imagens/fase1/r1.ia.png",
     "pista": "Pista da rodada 1"
   },

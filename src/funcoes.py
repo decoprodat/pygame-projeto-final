@@ -50,6 +50,8 @@ def rodadas_acabaram(indice_rodada, total_rodadas):
     return indice_rodada >= total_rodadas
 
 def tempo_fase (fase):
+    
+    """Devolve quantos segundos o jogador tem para responder em cada fase."""
 
     if fase == 1:
 

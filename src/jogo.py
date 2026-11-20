@@ -39,11 +39,36 @@ from src.dados import (
     salvar_rodada
 )
 
+from src.tela import(
+
+    carregar_imagem,
+    posicao_imagem,
+    desenhar_imagens,
+    desenhar_moldura,
+    LARGURA_IMG,
+    ALTURA_IMG
+    
+    
+)
+
+def carregar_imagens(rodada):
+
+    """Carrega as imagens"""
+
+    lista_imagens = []
+
+    for img in rodada["imagens"]:
+
+        lista_imagens.append(carregar_imagem(img,LARGURA_IMG,ALTURA_IMG))
+
+
+    return lista_imagens
+
+
 
 def executar_jogo():
     """Executa o loop principal do jogo e controla estado, pontuações, erros e acertos."""
     pygame.init()
-    
 
     tela = pygame.display.set_mode((LARGURA_TELA, ALTURA_TELA))
     pygame.display.set_caption(TITULO_JOGO)

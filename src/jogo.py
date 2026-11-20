@@ -31,6 +31,7 @@ from src.funcoes import (
     errar,
     verificar_resposta,
     mover_selecao,
+    tempo_fase
 )
 from src.dados import (
     salvar_recorde,
@@ -132,7 +133,7 @@ def executar_jogo():
                     else:
                         print("Errou!")
         # Cronômetro: calcula quanto tempo ainda resta na rodada
-        restante = tempo_restante(inicio_rodada, pygame.time.get_ticks(), TEMPO_RODADA)
+        restante = tempo_restante(inicio_rodada, pygame.time.get_ticks(), tempo_fase(rodada["fase"]))
 
         # Se o tempo acabou sem resposta, conta como erro e tira uma chance
         if not avancar and tempo_acabou(restante):
@@ -152,7 +153,7 @@ def executar_jogo():
                 imagens = carregar_imagens(rodada)
                 selecionada = 0                                 # volta a seleção para a primeira imagem
                 inicio_rodada = pygame.time.get_ticks()         # reinicia o cronômetro
-                restante = TEMPO_RODADA
+                restante = tempo_fase(rodada["fase"])
         # Regras de fim de jogo e recorde
         if jogador_chance(chance):
             rodando = False

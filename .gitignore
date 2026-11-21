@@ -4,3 +4,6 @@ __pycache__/
 
 # Cache do pytest
 .pytest_cache/
+
+# Ambiente virtual Python
+.venv/

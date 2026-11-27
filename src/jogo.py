@@ -149,7 +149,7 @@ def executar_jogo():
                 imagens = carregar_imagens(rodada)
                 selecionada = 0                                 # volta a seleção para a primeira imagem
                 inicio_rodada = pygame.time.get_ticks()         # reinicia o cronômetro
-                restante = tempo_fase(rodada["fase"])
+              
         # Regras de fim de jogo e recorde
         if jogador_chance(chance):
             rodando = False

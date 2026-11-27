@@ -1,4 +1,4 @@
-from src.funcoes import calcular_pontos, jogador_chance, limitar_valor, verificar_resposta, mover_selecao, tempo_restante, tempo_acabou, proxima_rodada, rodadas_acabaram
+from src.funcoes import calcular_pontos, jogador_chance, limitar_valor, verificar_resposta, mover_selecao, tempo_restante, tempo_acabou, proxima_rodada, rodadas_acabaram, calcular_bonus
 
 def test_calcular_pontos():
     """Deve somar corretamente os pontos atuais com os pontos ganhos."""
@@ -71,3 +71,9 @@ def test_rodadas_acabaram():
     """Deve indicar quando o índice passa da última rodada."""
     assert rodadas_acabaram(5, 5) is True
     assert rodadas_acabaram(4, 5) is False
+
+
+def test_calcular_bonus():
+    """Deve garantir que o bonus será aplicado corretamente multiplica o primeiro termo x segundo"""
+    assert calcular_bonus(7,5) == 35 
+    assert calcular_bonus(0,5) == 0 

@@ -1,3 +1,4 @@
+
 def calcular_pontos(pontos_atual, pontos_ganhos):
     """Soma os pontos ganhos à pontuação atual."""
     return pontos_atual + pontos_ganhos
@@ -54,12 +55,15 @@ def tempo_fase (fase):
     """Devolve quantos segundos o jogador tem para responder em cada fase."""
 
     if fase == 1:
-
-        return 20
-
+        return 20 
+    
     elif fase == 2:
-        
         return 15
-
+    
     else:
         return 10
+
+def calcular_bonus(tempo , pontos): 
+    """Bonus = tempo restante x multiplicador"""
+
+    return tempo * pontos

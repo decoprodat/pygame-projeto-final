@@ -9,6 +9,8 @@ from src.config import (
     CAMINHO_RECORDE,
     CAMINHO_RODADAS,
     TEMPO_RODADA,
+    PONTOS_ACERTOS,
+    MULTIPLICADOR_BONUS
 )
 
 from src.funcoes import (
@@ -22,16 +24,8 @@ from src.funcoes import (
     tempo_acabou,
     proxima_rodada,
     rodadas_acabaram,
-)
-
-from src.funcoes import (
-    calcular_pontos,
-    jogador_chance,
-    limitar_valor,
-    errar,
-    verificar_resposta,
-    mover_selecao,
-    tempo_fase
+    tempo_fase,
+    calcular_bonus,
 )
 from src.dados import (
     salvar_recorde,
@@ -78,7 +72,7 @@ def executar_jogo():
     rodando = True
     
     pontos = 0
-    chance = 2
+    chance = 3
     recorde = carregar_recorde(CAMINHO_RECORDE)
 
     rodadas = carregar_rodada(CAMINHO_RODADAS)
@@ -99,6 +93,8 @@ def executar_jogo():
         relogio.tick(FPS)
 
         avancar = False #vai virar true quando a rodada terminar 
+        # Cronômetro: calcula quanto tempo ainda resta na rodada
+        restante = tempo_restante(inicio_rodada, pygame.time.get_ticks(), tempo_fase(rodada["fase"]))
 
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
@@ -122,6 +118,7 @@ def executar_jogo():
                 # Enter ou Espaço: confirma a imagem escolhida
                 elif evento.key in (pygame.K_RETURN, pygame.K_SPACE):
                     acertou = verificar_resposta(rodada, selecionada)
+
                     if not acertou:
                         chance = errar(chance, 1)
                     
@@ -129,11 +126,10 @@ def executar_jogo():
 
                     # Vai exibir o resultado no terminal
                     if acertou:
-                        print("Acertou!")
+                        pontos = calcular_pontos(pontos,PONTOS_ACERTOS + calcular_bonus(restante,MULTIPLICADOR_BONUS))
+
                     else:
                         print("Errou!")
-        # Cronômetro: calcula quanto tempo ainda resta na rodada
-        restante = tempo_restante(inicio_rodada, pygame.time.get_ticks(), tempo_fase(rodada["fase"]))
 
         # Se o tempo acabou sem resposta, conta como erro e tira uma chance
         if not avancar and tempo_acabou(restante):
@@ -161,6 +157,8 @@ def executar_jogo():
         if pontos > recorde:
             recorde = pontos
             salvar_recorde(CAMINHO_RECORDE, recorde)
+
+       
 
         pygame.display.set_caption(
             f"{TITULO_JOGO} | Pontos: {pontos} | Recorde: {recorde} | chance: {chance}"

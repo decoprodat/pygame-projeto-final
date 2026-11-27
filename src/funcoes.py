@@ -66,4 +66,4 @@ def tempo_fase (fase):
 def calcular_bonus(tempo , pontos): 
     """Bonus = tempo restante x multiplicador"""
 
-    return tempo * pontos
+    return int(tempo * pontos)

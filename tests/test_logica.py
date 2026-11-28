@@ -1,4 +1,4 @@
-from src.funcoes import calcular_pontos, jogador_chance, limitar_valor, verificar_resposta, mover_selecao, tempo_restante, tempo_acabou, proxima_rodada, rodadas_acabaram, calcular_bonus,sequencia_acertos
+from src.funcoes import calcular_pontos, jogador_chance, limitar_valor, verificar_resposta, mover_selecao, tempo_restante, tempo_acabou, proxima_rodada, rodadas_acabaram, calcular_bonus,sequencia_acertos, multiplicador_pontos,errar,tempo_fase
 
 def test_calcular_pontos():
     """Deve somar corretamente os pontos atuais com os pontos ganhos."""
@@ -84,4 +84,25 @@ def test_sequencia_acertos():
     assert sequencia_acertos(1,True) == 2
     assert sequencia_acertos(4,False) == 0
 
- 
+
+def test_multiplicador_pontos():
+    """Confere se os pontos estão sendo multiplicados corretamente"""
+
+    assert multiplicador_pontos(0) == 1 
+    assert multiplicador_pontos(1) == 2
+    assert multiplicador_pontos(2) == 20
+    assert multiplicador_pontos(10) == 20 
+
+def test_errar():
+    """Confere se a chance é removida normalmente"""
+
+    assert errar(2,1) == 1
+    assert errar(1,0) == 1
+    assert errar(1,1) == 0
+
+def test_tempo_fase():
+    """Confere se o tempo da fase está correto"""
+
+    assert tempo_fase(1) == 20 
+    assert tempo_fase(2) == 15
+    assert tempo_fase(3) == 10 

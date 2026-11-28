@@ -162,7 +162,8 @@ def executar_jogo():
                 if acertou:
                     acertos = acertos + 1
                     # int tira as casas decimais do bônus
-                    pontos = calcular_pontos(pontos, PONTOS_ACERTOS + int(calcular_bonus(restante, MULTIPLICADOR_BONUS)))
+                    ganhos = PONTOS_ACERTOS + int(calcular_bonus(restante, MULTIPLICADOR_BONUS))
+                    pontos = calcular_pontos(pontos,ganhos * multiplicador_pontos(sequencia))
                 else:
                     erros = erros + 1
                     chance = errar(chance, 1)
@@ -192,7 +193,7 @@ def executar_jogo():
                 mostrando_pista = False
         # Regras de fim de jogo e recorde
         if avancar and jogador_chance(chance):
-            fim_de_jogo = True
+            fim_de_jogo = True 
 
         if pontos > recorde:
             recorde = pontos

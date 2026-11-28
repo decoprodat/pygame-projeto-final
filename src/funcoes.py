@@ -4,9 +4,9 @@ def calcular_pontos(pontos_atual, pontos_ganhos):
     return pontos_atual + pontos_ganhos
 
 
-def errar(vida_atual, erro):
+def errar(chance, erro):
     """Reduz a quantidade de chances atual com base no erro recebido que é automaticamente 1, de 1 em 1."""
-    return vida_atual - erro
+    return chance - erro
 
 
 def jogador_chance(chance):

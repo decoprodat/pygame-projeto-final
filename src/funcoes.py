@@ -67,3 +67,18 @@ def calcular_bonus(tempo , pontos):
     """Bonus = tempo restante x multiplicador"""
 
     return int(tempo * pontos)
+
+def sequencia_acertos(sequencia,acertou):
+
+    """Compara e soma 1 a sequencia de acertos ou iguala a 0 e caso de erro"""
+    
+    if acertou == True:
+
+    
+
+        return sequencia+1
+    
+    else:
+        sequencia =  0
+
+    return sequencia

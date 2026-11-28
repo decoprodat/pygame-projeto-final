@@ -155,6 +155,7 @@ def executar_jogo():
             # Confere a resposta
             if confirmou:
                 acertou = verificar_resposta(rodada, selecionada)
+                sequencia = sequencia_acertos(sequencia, acertou)
                 escolhida = selecionada
                 mostrando_pista = True
 
@@ -172,6 +173,7 @@ def executar_jogo():
             print("Tempo esgotado!")
             erros = erros + 1
             chance = errar(chance, 1)
+            sequencia = 0
             escolhida = None
             mostrando_pista = True
         # olha se o jogador tem chance, se sim, passa, se não, não passa

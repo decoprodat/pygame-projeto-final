@@ -73,12 +73,26 @@ def sequencia_acertos(sequencia,acertou):
     """Compara e soma 1 a sequencia de acertos ou iguala a 0 e caso de erro"""
     
     if acertou == True:
-
-    
-
-        return sequencia+1
+ 
+        return sequencia+1  
     
     else:
         sequencia =  0
 
     return sequencia
+
+def multiplicador_pontos(sequencia):
+    """Multiplica os pontos de acordo com a sequencia"""
+
+    if sequencia >= 2:
+
+        return 20
+
+
+    elif sequencia == 1:
+
+        return 2*sequencia
+
+    else:
+
+        return 1

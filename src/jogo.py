@@ -27,6 +27,7 @@ from src.funcoes import (
     tempo_fase,
     calcular_bonus,
     sequencia_acertos,
+    multiplicador_pontos
 )
 from src.dados import (
     salvar_recorde,
@@ -138,7 +139,7 @@ def executar_jogo():
             print("Tempo esgotado!")
             chance = errar(chance, 1)
             avancar = True
-
+            sequencia = 0
         # olha se o jogador tem chance, se sim, passa, se não, não passa
         if avancar and not jogador_chance(chance):
             indice_rodada = proxima_rodada(indice_rodada)

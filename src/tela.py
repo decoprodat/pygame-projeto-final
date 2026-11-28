@@ -6,6 +6,7 @@ from src.config import (
     COR_BARRA_FUNDO, COR_BARRA_CHEIA, COR_BARRA_MEIO, COR_BARRA_FIM,
     ALTURA_HUD, Y_BARRA_TEMPO, ALTURA_BARRA_TEMPO, MARGEM,
     ESPACO_IMAGENS, Y_IMAGENS, TAMANHO_MAX_IMAGEM, CAMINHO_FUNDO,
+    COR_TEXTO, TAMANHO_FONTE_TEXTO,
 )
 
 # Tamanho das imagens quando a rodada tem 2 (o jogo.py já importa estes nomes)
@@ -150,3 +151,15 @@ def desenhar_barra_tempo(tela, restante, total):
     if largura > 0:
         pygame.draw.rect(tela, cor,
                          (MARGEM, Y_BARRA_TEMPO, largura, ALTURA_BARRA_TEMPO), border_radius=8)
+
+
+
+def desenhar_relatorio(tela, pontos, acertos, erros, recorde):
+    """Desenha o relatório de fim de jogo."""
+    textos = ["Fim de jogo!", f"Pontos: {pontos}", f"Acertos: {acertos}",
+              f"Erros: {erros}", f"Recorde: {int(recorde)}", "Pressione ESC para sair"]
+    y = 180  # altura da primeira linha
+
+    for texto in textos:
+        desenhar_texto(tela, texto, TAMANHO_FONTE_TEXTO, COR_TEXTO, (LARGURA_TELA // 2, y), True)
+        y = y + 55  # desce para a próxima linha

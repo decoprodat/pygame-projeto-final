@@ -31,6 +31,7 @@ from src.funcoes import (
     tempo_fase,
     calcular_bonus,
     sequencia_acertos,
+    multiplicador_pontos
 )
 from src.dados import (
     salvar_recorde,

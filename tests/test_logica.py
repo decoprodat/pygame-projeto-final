@@ -83,3 +83,5 @@ def test_sequencia_acertos():
 
     assert sequencia_acertos(1,True) == 2
     assert sequencia_acertos(4,False) == 0
+
+ 

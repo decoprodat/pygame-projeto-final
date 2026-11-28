@@ -26,6 +26,7 @@ from src.funcoes import (
     rodadas_acabaram,
     tempo_fase,
     calcular_bonus,
+    sequencia_acertos,
 )
 from src.dados import (
     salvar_recorde,
@@ -84,6 +85,7 @@ def executar_jogo():
     indice_rodada = 0                 # qual a rodada que está sendo jogada
     rodada = rodadas[indice_rodada]   # a rodada atual
     imagens = carregar_imagens(rodada) 
+    sequencia = 0
     selecionada = 0                   # qual imagem está marcada
 
     inicio_rodada = pygame.time.get_ticks()   # vai pegar o instante (EM MS, NÃO EM SEGS) em que a rodada começou
@@ -118,6 +120,7 @@ def executar_jogo():
                 # Enter ou Espaço: confirma a imagem escolhida
                 elif evento.key in (pygame.K_RETURN, pygame.K_SPACE):
                     acertou = verificar_resposta(rodada, selecionada)
+                    sequencia = sequencia_acertos(sequencia,acertou)
 
                     if not acertou:
                         chance = errar(chance, 1)
@@ -127,7 +130,6 @@ def executar_jogo():
                     # Vai exibir o resultado no terminal
                     if acertou:
                         pontos = calcular_pontos(pontos,PONTOS_ACERTOS + calcular_bonus(restante,MULTIPLICADOR_BONUS))
-
                     else:
                         print("Errou!")
 
@@ -158,10 +160,9 @@ def executar_jogo():
             recorde = pontos
             salvar_recorde(CAMINHO_RECORDE, recorde)
 
-       
 
         pygame.display.set_caption(
-            f"{TITULO_JOGO} | Pontos: {pontos} | Recorde: {recorde} | chance: {chance}"
+            f"{TITULO_JOGO} | Pontos: {pontos} | Recorde: {recorde} | chance: {chance} | Acertos {sequencia}"
         )
 
         tela.fill(CINZA)

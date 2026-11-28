@@ -41,33 +41,18 @@ from src.dados import (
     salvar_rodada
 )
 
-from src.tela import(
-
-    carregar_imagem,
-    posicao_imagem,
+from src.tela import (
+    carregar_imagens_rodada,
+    carregar_fundo,
+    desenhar_fundo,
+    desenhar_hud,
+    desenhar_barra_tempo,
     desenhar_imagens,
     desenhar_moldura,
     desenhar_texto,
     imagem_clicada,
     desenhar_relatorio,
-    LARGURA_IMG,
-    ALTURA_IMG
-    
-    
 )
-
-def carregar_imagens(rodada):
-
-    """Carrega as imagens"""
-
-    lista_imagens = []
-
-    for img in rodada["imagens"]:
-
-        lista_imagens.append(carregar_imagem(img,LARGURA_IMG,ALTURA_IMG))
-
-
-    return lista_imagens
 
 
 
@@ -77,6 +62,7 @@ def executar_jogo():
 
     tela = pygame.display.set_mode((LARGURA_TELA, ALTURA_TELA))
     pygame.display.set_caption(TITULO_JOGO)
+    fundo = carregar_fundo()   # imagem de fundo (se não existir, usa a cor do config)
 
     relogio = pygame.time.Clock()
     rodando = True
@@ -97,7 +83,7 @@ def executar_jogo():
 
     indice_rodada = 0                 # qual a rodada que está sendo jogada
     rodada = rodadas[indice_rodada]   # a rodada atual
-    imagens = carregar_imagens(rodada) 
+    imagens = carregar_imagens_rodada(rodada["imagens"])
     sequencia = 0
     selecionada = 0                   # qual imagem está marcada
 
@@ -191,7 +177,7 @@ def executar_jogo():
                 fim_de_jogo = True
             else:
                 rodada = rodadas[indice_rodada]                 # carrega a nova rodada
-                imagens = carregar_imagens(rodada)
+                imagens = carregar_imagens_rodada(rodada["imagens"])
                 selecionada = 0                                 # volta a seleção para a primeira imagem
                 inicio_rodada = pygame.time.get_ticks()         # reinicia o cronômetro
                 restante = tempo_fase(rodada["fase"])
@@ -209,10 +195,13 @@ def executar_jogo():
             f"{TITULO_JOGO} | Pontos: {pontos} | Recorde: {recorde} | chance: {chance} | Acertos {sequencia}"
         )
 
-        tela.fill(CINZA)
-        desenhar_imagens(tela,imagens)
+        desenhar_fundo(tela, fundo)
+        if not fim_de_jogo:
+            desenhar_hud(tela, pontos, chance, rodada["fase"], recorde, indice_rodada + 1, len(rodadas))
+            desenhar_barra_tempo(tela, restante, tempo_fase(rodada["fase"]))
+            desenhar_imagens(tela, imagens)
+
         if fim_de_jogo:
-            tela.fill(CINZA)  # apaga as imagens para mostrar o relatório
             desenhar_relatorio(tela, pontos, acertos, erros, recorde)
         elif mostrando_pista:
             indice_ia = rodada["imagens"].index(rodada["ia"])  # posição da imagem de IA

@@ -127,7 +127,7 @@ def desenhar_hud(tela, pontos, chances, fase, recorde, rodada, total_rodadas):
     """Desenha a faixa do topo com pontos, chances, fase, rodada e recorde."""
     pygame.draw.rect(tela, COR_HUD, (0, 0, LARGURA_TELA, ALTURA_HUD))
     itens = [f"Pontos: {pontos}", f"Chances: {chances}", f"Fase: {fase}",
-             f"Rodada: {rodada}/{total_rodadas}", f"Recorde: {recorde}"]
+             f"Rodada: {rodada}/{total_rodadas}", f"Recorde: {int(recorde)}"]
     coluna = LARGURA_TELA // len(itens)
     for i, texto in enumerate(itens):
         centro = (coluna * i + coluna // 2, ALTURA_HUD // 2)

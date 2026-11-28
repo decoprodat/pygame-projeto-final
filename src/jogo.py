@@ -1,3 +1,4 @@
+import random
 import pygame
 
 from src.config import (
@@ -89,6 +90,10 @@ def executar_jogo():
         print("Nenhuma rodada encontrada.")
         pygame.quit()
         return
+
+# Embaralha a ordem das imagens de cada rodada, sem alterar o arquivo JSON original
+    for r in rodadas:
+        random.shuffle(r["imagens"])
 
     indice_rodada = 0                 # qual a rodada que está sendo jogada
     rodada = rodadas[indice_rodada]   # a rodada atual

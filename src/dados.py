@@ -15,7 +15,7 @@ def carregar_recorde(caminho_arquivo):
             if conteudo == "":
                 return 0
 
-            return int(conteudo)
+            return float(conteudo)
 
     except FileNotFoundError:
         return 0
